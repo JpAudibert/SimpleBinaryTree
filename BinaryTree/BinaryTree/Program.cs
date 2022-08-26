@@ -1,13 +1,13 @@
 ﻿using BinaryTree;
 
-IEnumerable<int> values = new List<int>() { 4, 5, 8, 9 };
+IEnumerable<int> values = new List<int>() { 9, 83, 5, 7 };
 TreeConstructor treeConstructor = new TreeConstructor();
 
 Node? tree = null;
 
 foreach (var value in values)
 {
-     tree = treeConstructor.InsertValues(tree, value);
+    tree = treeConstructor.InsertValues(tree, value);
 }
 
-Console.WriteLine(tree);
+treeConstructor.InOrderRead(tree);
