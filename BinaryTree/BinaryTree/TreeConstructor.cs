@@ -29,4 +29,24 @@ public class TreeConstructor
             InOrderRead(node.Right);
         }
     }
+
+    public void PreOrderRead(Node? node)
+    {
+        if (node is not null)
+        {
+            Console.Write(node.Value + " ");
+            PreOrderRead(node.Left);
+            PreOrderRead(node.Right);
+        }
+    }
+
+    public void PostOrderRead(Node? node)
+    {
+        if (node is not null)
+        {
+            PostOrderRead(node.Left);
+            PostOrderRead(node.Right);
+            Console.Write(node.Value + " ");
+        }
+    }
 }
