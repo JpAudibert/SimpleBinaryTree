@@ -1,6 +1,6 @@
 ﻿using BinaryTree;
 
-IEnumerable<int> values = new List<int>() { 9, 83, 5, 7 };
+IEnumerable<(int, string)> values = new List<(int, string)>() { ( 9, "João" ), (83, "Pedro"), (5, "Basso"), (7, "Audibert") };
 TreeConstructor treeConstructor = new TreeConstructor();
 
 Node? tree = null;
@@ -16,3 +16,6 @@ Console.WriteLine("\n\nPre Order Read:");
 treeConstructor.PreOrderRead(tree);
 Console.WriteLine("\n\nPost Order Read:");
 treeConstructor.PostOrderRead(tree);
+
+Console.WriteLine("\n\n\nSearch:");
+treeConstructor.FindElement(tree, 9);
