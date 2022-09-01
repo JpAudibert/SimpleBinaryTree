@@ -17,5 +17,9 @@ treeConstructor.PreOrderRead(tree);
 Console.WriteLine("\n\nPost Order Read:");
 treeConstructor.PostOrderRead(tree);
 
+tree = treeConstructor.RemoveValues(tree, 7);
+Console.WriteLine("\n\nTree after removing values:");
+treeConstructor.InOrderRead(tree);
+
 Console.WriteLine("\n\n\nSearch:");
 treeConstructor.FindElement(tree, 9);

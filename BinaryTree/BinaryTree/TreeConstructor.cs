@@ -73,4 +73,68 @@ public class TreeConstructor
 
         return null;
     }
+
+    public void CreateListOfValues(Node? node, bool reIntegrateValues)
+    {
+        if (node is not null)
+        {
+            CreateListOfValues(node.Left, false);
+            CreateListOfValues(node.Right, false);
+            NodeValues.Add((node.Value, node.Name));
+        }
+
+        if (reIntegrateValues)
+            foreach (var value in NodeValues)
+                InsertValues(node, value);
+        else
+            CreateListOfValues(node, true);
+    }
+
+    static int MinimumValue(Node? node)
+    {
+        if(node is null)
+            return 0;
+
+        while (node.Left is not null)
+            node = node.Left;
+
+        return node.Value;
+    }
+
+    static int MaximumValue(Node? node)
+    {
+        if (node is null)
+            return 0;
+
+        while (node.Right is not null)
+            node = node.Right;
+
+        return node.Value;
+    }
+
+    public Node? RemoveValues(Node? node, int value)
+    {
+        if (node is null)
+            return null;
+
+        if (node.Value > value)
+            node.Left = RemoveValues(node.Left, value);
+        else if (node.Value < value)
+            node.Right = RemoveValues(node.Right, value);
+        else
+        {
+            if (node.Left is null)
+                return node.Right;
+            else if (node.Right is null)
+                return node.Left;
+            else
+            {
+                int substitute = MinimumValue(node.Right);
+                node.Value = substitute;
+                node.Right = RemoveValues(node.Right, substitute);
+            }
+        }
+
+        return node;
+    }
 }
