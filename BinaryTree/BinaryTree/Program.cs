@@ -22,4 +22,4 @@ Console.WriteLine("\n\nTree after removing values:");
 treeConstructor.InOrderRead(tree);
 
 Console.WriteLine("\n\n\nSearch:");
-treeConstructor.FindElement(tree, 9);
+treeConstructor.FindElement(tree, 10);

@@ -74,23 +74,7 @@ public class TreeConstructor
         return null;
     }
 
-    public void CreateListOfValues(Node? node, bool reIntegrateValues)
-    {
-        if (node is not null)
-        {
-            CreateListOfValues(node.Left, false);
-            CreateListOfValues(node.Right, false);
-            NodeValues.Add((node.Value, node.Name));
-        }
-
-        if (reIntegrateValues)
-            foreach (var value in NodeValues)
-                InsertValues(node, value);
-        else
-            CreateListOfValues(node, true);
-    }
-
-    static int MinimumValue(Node? node)
+    private int MinimumValue(Node? node)
     {
         if(node is null)
             return 0;
@@ -101,7 +85,7 @@ public class TreeConstructor
         return node.Value;
     }
 
-    static int MaximumValue(Node? node)
+    private int MaximumValue(Node? node)
     {
         if (node is null)
             return 0;
